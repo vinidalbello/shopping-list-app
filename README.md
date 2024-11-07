@@ -55,3 +55,5 @@ Para limpar e recriar as tabelas do banco de dados (útil para testes):
 ```bash
 npm run prisma:reset
 ```
+
+TESTE
