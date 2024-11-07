@@ -1,0 +1,26 @@
+#!/bin/bash
+
+
+CONTEXT=$1
+SERVICE=$2
+TOOL=$3
+COMMAND="${@:4}"
+
+if [ "$TOOL" != "npm" ]; then
+  echo "Erro: o terceiro argumento deve ser 'npm'. Exemplo: ./sla local web npm run dev"
+  exit 1
+fi
+
+if [ "$SERVICE" == "web" ]; then
+  DIRECTORY="app"
+else
+  echo "Serviço não reconhecido. Use './sla local web npm <comando>'"
+  exit 1
+fi
+
+if [ "$CONTEXT" == "local" ]; then
+  (cd $DIRECTORY && npm $COMMAND)
+else
+  echo "Contexto não reconhecido. Use './sla local web npm <comando>'"
+  exit 1
+fi

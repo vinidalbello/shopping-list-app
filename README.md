@@ -56,4 +56,35 @@ Para limpar e recriar as tabelas do banco de dados (útil para testes):
 npm run prisma:reset
 ```
 
-TESTE
+### Script sla para Gerenciamento de Comandos NPM 
+
+O projeto possui um script chamado sla que facilita a execução de comandos npm na pasta app diretamente da raiz do projeto (shopping-list-app). Esse script permite rodar comandos como npm run dev, npm install, entre outros, sem precisar navegar até a pasta app.
+
+### Estrutura do Comando
+
+Para usar o script, utilize a seguinte estrutura:
+
+```bash
+./sla local web npm <comando>
+```
+-	local: Especifica o ambiente local para execução do comando.
+-	web: Indica que o comando é voltado para o serviço web (configurado para rodar npm na pasta app).
+-	npm: Sempre deve ser especificado como o terceiro parâmetro, indicando que o comando é um comando npm.  
+- <comando>: Qualquer comando npm que você deseja executar, como install, run dev, test, etc.
+
+### Exemplo de Uso:
+
+Iniciar o ambiente de desenvolvimento (MacOS):
+```bash
+./sla local web npm run dev
+```
+
+Windows:
+```bash
+sla.bat local web npm run dev
+```
+
+Rodar isso aqui no Windows:
+```bash
+Set-ExecutionPolicy RemoteSigned
+```
